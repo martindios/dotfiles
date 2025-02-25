@@ -48,4 +48,9 @@ opt.smartindent = true
 -- don't auto commenting new lines
 cmd[[au BufEnter * set fo-=c fo-=r fo-=o]]
 
+-- fold config
+opt.foldcolumn = '1'
+opt.foldlevelstart = 99
+opt.foldenable = true
+opt.fillchars = { eob = " ", fold = " ", foldopen = "", foldsep = " ", foldclose = "" }
 

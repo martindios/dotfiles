@@ -30,3 +30,15 @@ vim.keymap.set("n", "<leader>fb", ":Telescope file_browser path=%:p:h select_buf
 -- Outline.nvim --
 
 vimap("n", "<leader>l", "<cmd>Outline!<CR>", {desc = "Toggle Outline"})
+
+-- Default config folds --
+------------------------
+-- zf: crear pliegue
+-- zf2j: pliegue con la línea actual y las 2 siguientes
+-- zc: cerrar pliegue
+-- zo: abrir pliegue
+-- zd: eliminar pliegue
+
+-- Folding config --
+map("n", "<leader>j", "zc", opts)
+map("n", "<leader>k", "zo", opts)
