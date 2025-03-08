@@ -2,6 +2,10 @@ local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 local vimap = vim.keymap.set
 
+-- Default confs --
+
+vim.keymap.set("i", "<C-BS>", "<C-W>")
+
 -----------------
 -- Barbar.nvim --
 -----------------
@@ -42,3 +46,7 @@ vimap("n", "<leader>l", "<cmd>Outline!<CR>", {desc = "Toggle Outline"})
 -- Folding config --
 map("n", "<leader>j", "zc", opts)
 map("n", "<leader>k", "zo", opts)
+
+-- Control + C to copy --
+vim.keymap.set("v", "<C-c>", '"+y', { noremap = true, silent = true })
+
