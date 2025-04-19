@@ -75,6 +75,6 @@ Si encuentras algún bug, mejora o deseas sugerir cambios:
 
 ---
 
-## 📄 Licencia
+## Licencia
 
 Este proyecto está bajo la licencia **Apache-2.0**. Consulta el archivo `LICENSE` para más detalles.
