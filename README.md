@@ -45,6 +45,8 @@ En Arch Linux puedes instalarlos con:
 sudo pacman -S yadm xorg bspwm sxhkd kitty polybar udiskie fish eza bat neovim
 ```
 
+> ⚠️ Puede que falte algún paquete extra. Si encuentras alguno que falta, por favor redirígete a la sección de **Contribuciones**.
+
 ---
 
 ## 🚀 Instalación
