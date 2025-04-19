@@ -3,57 +3,55 @@
 Este repositorio contiene mis dotfiles para Arch Linux, gestionados con [yadm](https://yadm.io/) como dotfile manager. Para clonarlos y mantenerlos sincronizados basta con:
 
 ```bash
-yadm clone git@github.com:martindios/dotfiles.git
+yadm clone https://github.com/martindios/dotfiles.git
 ```
 
 ---
 
-## 📋 Contenido
+## Contenido
 
-- **`.xinitrc`**  
-  Configuración de X (inicia automáticamente `sxhkd`, `kitty` y `aw` – Activity Watch).
-- **`.gitconfig`**  
-  Ajustes de Git, incluyendo el uso de **delta** para diffs más legibles.
+- **`.xinitrc`**: configuración de X (inicia automáticamente `sxhkd`, `kitty` y `aw` – [Activity Watch](https://activitywatch.net)).
+- **`.gitconfig`**: ajustes de Git, incluyendo el uso de [**delta**](https://github.com/dandavison/delta) para diffs más legibles.
 - **`.config/`**  
-  - **`bspwm/`**: configuración del Window Manager (inicia `polybar` y `udiskie` para detección automática de USBs).  
+  - **`bspwm/`**: configuración del Window Manager (inicia `polybar` y `udiskie`).  
   - **`eza/`**: theme.yml para `eza` (sustituto mejorado de `ls` y `tree`).  
   - **`fish/`**: `config.fish` con funciones y alias (reemplaza `ls` y `tree` por `eza`, y `cat` por `bat`).  
   - **`kitty/`**: tema **Darkside**, ajustes de fuente y otras preferencias en `kitty.conf`.  
-  - **`nvim/`**: gestor de plugins [lazy.nvim] y todos mis plugins y settings.  
+  - **`nvim/`**: gestor de plugins ([lazy.nvim](https://github.com/folke/lazy.nvim)) y todos mis plugins y settings.  
   - **`polybar/`**: `config.ini` con mi barra de estado personalizada.  
   - **`sxhkd/`**: mapeo de teclas para controlar `bspwm` y lanzar aplicaciones.
 
 ---
 
-## ⚙️ Prerrequisitos
+## Prerrequisitos
 
 Antes de comenzar, asegúrate de tener instalados:
 
-- **yadm**  
-- **Xorg**  
-- **bspwm**, **sxhkd**  
-- **kitty**  
-- **polybar**  
-- **udiskie**  
-- **fish**  
-- **eza**  
-- **bat**  
-- **neovim**  
+- [**yadm**](https://yadm.io/)
+- [**Xorg**](https://wiki.archlinux.org/title/Xorg)  
+- [**bspwm**](https://github.com/baskerville/bspwm), [**sxhkd**](https://github.com/baskerville/sxhkd)
+- [**kitty**](https://github.com/kovidgoyal/kitty)
+- [**polybar**](https://github.com/polybar/polybar)  
+- [**udiskie**](https://github.com/coldfix/udiskie)  
+- [**fish**](https://fishshell.com/)
+- [**eza**](https://github.com/eza-community/eza) 
+- [**bat**](https://github.com/sharkdp/bat)  
+- [**neovim**](https://neovim.io/)
 
 En Arch Linux puedes instalarlos con:
 ```bash
-sudo pacman -S yadm xorg bspwm sxhkd kitty polybar udiskie fish eza bat neovim
+sudo pacman -Syu yadm xorg bspwm sxhkd kitty polybar udiskie fish eza bat neovim
 ```
 
 > ⚠️ Puede que falte algún paquete extra. Si encuentras alguno que falta, por favor redirígete a la sección de **Contribuciones**.
 
 ---
 
-## 🚀 Instalación
+## Instalación
 
 1. **Clonar el repositorio**  
    ```bash
-   yadm clone git@github.com:TU_USUARIO/dotfiles.git
+   yadm clone https://github.com/martindios/dotfiles.git
    ```
 2. **Aplicar configuraciones**  
    Yadm automáticamente hará checkout de todos los archivos en tu `$HOME`.
@@ -62,112 +60,10 @@ sudo pacman -S yadm xorg bspwm sxhkd kitty polybar udiskie fish eza bat neovim
    ```bash
    chsh -s /usr/bin/fish
    ```
-
+   
 ---
 
-## 🗂️ Estructura del repositorio
-
-```
-.
-├── .gitconfig
-├── .xinitrc
-├── .config/
-│   ├── bspwm/
-│   │   ├── bspwmrc
-│   │   └── polybar/…
-│   ├── eza/
-│   │   └── theme.yml
-│   ├── fish/
-│   │   └── config.fish
-│   ├── kitty/
-│   │   └── kitty.conf
-│   ├── nvim/
-│   │   ├── init.lua
-│   │   └── lua/…
-│   ├── polybar/
-│   │   └── config.ini
-│   └── sxhkd/
-│       └── sxhkdrc
-└── README.md
-```
-
----
-
-## 🔧 Detalle de configuraciones
-
-### .xinitrc  
-– Inicia tu entorno gráfico con:
-```bash
-exec bspwm &
-sxhkd &
-kitty &
-aw &
-```
-
-### .gitconfig  
-– Integra **delta** para diffs:
-```ini
-[core]
-    pager = delta
-[interactive]
-    diffFilter = delta --color-only
-```
-
-### bspwm  
-– `bspwmrc` lanza:
-```bash
-polybar mybar &
-udiskie --tray &
-```
-
-### eza  
-– `theme.yml` define paleta de colores y símbolos para listados `eza -T` (estructura tipo árbol).
-
-### fish  
-– En `config.fish` creé funciones:
-```fish
-function ls;    eza $argv; end
-function tree;  eza --tree $argv; end
-function cat;   bat $argv; end
-```
-
-### kitty  
-– Tema **Darkside** y ajustes de fuente en `kitty.conf`:
-```conf
-font_family Fira Code
-include themes/Darkside.conf
-```
-
-### neovim  
-– Uso [lazy.nvim] como plugin manager. Mi `init.lua` carga plugins de LSP, temática, statusline, etc.
-
-### polybar  
-– `config.ini` con secciones de módulos (CPU, red, volumen, reloj…) y estilo personalizado.
-
-### sxhkd  
-– Atajos para mover ventanas, cambiar escritorios y lanzar aplicaciones con atajos tipo `Super + J/K/H/L`, `Super + Enter`, etc.
-
----
-
-## 📝 Uso
-
-- **Arranca tu sesión**  
-  ```bash
-  startx
-  ```
-- **Recarga configuración de bspwm**  
-  ```bash
-  bspc wm --reload
-  ```
-- **Actualizar plugins de Neovim**  
-  Dentro de Neovim:
-  ```vim
-  :Lazy sync
-  ```
-
----
-
-## 🤝 Contribuciones
+## Contribuciones
 
 Si encuentras algún bug, mejora o deseas sugerir cambios:
 
