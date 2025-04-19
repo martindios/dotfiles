@@ -3,7 +3,7 @@
 Este repositorio contiene mis dotfiles para Arch Linux, gestionados con [yadm](https://yadm.io/) como dotfile manager. Para clonarlos y mantenerlos sincronizados basta con:
 
 ```bash
-yadm clone git@github.com:TU_USUARIO/dotfiles.git
+yadm clone git@github.com:martindios/dotfiles.git
 ```
 
 ---
