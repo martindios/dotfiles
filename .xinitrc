@@ -7,7 +7,7 @@ sxhkd &
 setxkbmap es
 
 
-xinput set-prop 10 "libinput Natural Scrolling Enabled" 1
+xinput set-prop 10 "libinput Natural Scrolling Enabled" 0
 xinput set-prop 11 "libinput Natural Scrolling Enabled" 1
 
 kitty &
