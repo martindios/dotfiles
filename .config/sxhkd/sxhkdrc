@@ -8,7 +8,8 @@ super + Return
 
 # program launcher
 super + @space
-	dmenu_run -i -p "Run:" -fn "FiraCode-12" -nb "#282c34" -nf "#bbc2cf" -sb "#51afef" -sf "#ffffff"
+    rofi -show drun -theme ~/.config/rofi/themes/roundedPurpleDark.rasi
+	#dmenu_run -i -p "Run:" -fn "FiraCode-12" -nb "#282c34" -nf "#bbc2cf" -sb "#51afef" -sf "#ffffff"
 
 # Aumentar brillo
 XF86MonBrightnessUp
