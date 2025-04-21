@@ -10,6 +10,9 @@ setxkbmap es
 xinput set-prop 10 "libinput Natural Scrolling Enabled" 0
 xinput set-prop 11 "libinput Natural Scrolling Enabled" 1
 
+export LANG=es_ES.UTF-8
+export LANGUAGE=es_ES:en_US
+
 kitty &
 aw-qt &
 
