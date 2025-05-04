@@ -16,4 +16,8 @@ export LANGUAGE=es_ES:en_US
 kitty &
 aw-qt &
 
+setxkbmap -layout "es,us" -option "grp:alt_shift_toggle"
+
 exec bspwm
+
+
