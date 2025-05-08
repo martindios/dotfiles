@@ -20,4 +20,5 @@ bspc rule -a Screenkey manage=off
 ~/.config/polybar/launch.sh &
 
 udiskie &
-xss-lock -- fish -c lock &
+
+xss-lock --transfer-sleep-lock -- i3lock --image ~/everything/background/lockScreen.png --no-unlock-indicator --tiling -c 000000
