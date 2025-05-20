@@ -1,5 +1,3 @@
-
-
 ----------------------------------------------------------------------------------
 --      __              __    _           ___                    __             --
 --     / /_____  __  __/ /_  (_)___  ____/ (_)___  ____ ______  / /_  ______ _  --
@@ -17,6 +15,24 @@ local vimap = vim.keymap.set
 -- Default confs --
 
 vim.keymap.set("i", "<C-BS>", "<C-W>")
+
+----------------
+-- Lsp Config --
+----------------
+
+vimap("n", "<leader>la", vim.lsp.buf.code_action,
+  { desc = "LSP: code action", noremap = true, silent = true })
+
+vimap("n", "<leader>lh", vim.lsp.buf.hover,
+    { desc = "LSP: hover (doc or sign)", noremap = true, silent = true })
+
+vimap("n", "<leader>ld", vim.lsp.buf.definition,
+    { desc = "LSP: definition", noremap = true, silent = true })
+
+
+vim.keymap.set('n', '<leader>lf', vim.diagnostic.open_float, { desc = "LSP: mostrar diagnóstico (float)", noremap=true, silent=true })
+
+
 
 -----------------
 -- Barbar.nvim --
@@ -57,7 +73,7 @@ end, { desc = "Telescope fuzzy find in actual buffer" })
 
 -- Outline.nvim --
 
-vimap("n", "<leader>l", "<cmd>Outline!<CR>", {desc = "Toggle Outline"})
+-- vimap("n", "<leader>l", "<cmd>Outline!<CR>", {desc = "Toggle Outline"})
 
 -- Default config folds --
 ------------------------
