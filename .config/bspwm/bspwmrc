@@ -20,6 +20,8 @@ bspc rule -a Screenkey manage=off
 
 wmname LG3D &
 
+picom --config ~/.config/picom/picom.conf -b &
+
 ~/.config/polybar/launch.sh &
 
 udiskie &
