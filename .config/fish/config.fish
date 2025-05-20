@@ -13,27 +13,23 @@ function ls
     eza --hyperlink --git-repos $argv
 end
 
+function lsn
+    command ls $argv
+end
+
 function tree
     eza --tree --hyperlink --git-repos $argv
 end
 
+function treen
+    command tree $argv
+end
+
 function catn
-    cat $argv
+    command cat $argv
 end
 
 function cat
     bat $argv
 end
 
-function compbdii
-    javac --release 21 --enable-preview \
-        -classpath "lib/postgresql-42.7.3.jar:bin" \
-        -d bin \
-        $(find . -name "*.java")
-end
-
-function ejbdii
-    java --enable-preview \
-        -classpath "bin:lib/postgresql-42.7.3.jar" \
-        Main
-end
