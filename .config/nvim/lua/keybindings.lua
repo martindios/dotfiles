@@ -39,9 +39,21 @@ map('n', '<A-c>', '<Cmd>BufferClose<CR>', opts)
 ---------------
 -- Telescope.nvim --
 ---------------
+local builtin = require("telescope.builtin")
 
 -- Open file browser with the path of the current buffer 
-vim.keymap.set("n", "<leader>fb", ":Telescope file_browser path=%:p:h select_buffer=true<CR>")
+vim.keymap.set("n", "<leader>fb", function()
+  require("telescope").extensions.file_browser.file_browser({
+    path = vim.fn.expand("%:p:h"),
+    select_buffer = true,
+  })
+end, { desc = "Telescope: file browser with the path of the current buffer" })
+
+vimap("n", "<leader>fg", builtin.live_grep,   { desc = "Telescope: grep with the actual path" })
+
+vim.keymap.set("n", "<leader>fv", function()
+    builtin.current_buffer_fuzzy_find()
+end, { desc = "Telescope fuzzy find in actual buffer" })
 
 -- Outline.nvim --
 
