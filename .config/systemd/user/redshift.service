@@ -1,0 +1,11 @@
+[Unit]
+Description=Redshift - Ajuste automático de temperatura de color
+After=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/redshift
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
+
