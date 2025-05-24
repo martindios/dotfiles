@@ -1,7 +1,7 @@
 #!/bin/sh
-nitrogen --restore &
+nitrogen --force-setter=xinerama --restore &
 xsetroot -cursor_name left_ptr &
-picom -f &
+picom -b &
 sxhkd &
 
 setxkbmap es
@@ -15,9 +15,9 @@ export LANGUAGE=es_ES:en_US
 
 kitty &
 aw-qt &
+flameshot &
 
 setxkbmap -layout "es,us" -option "grp:alt_shift_toggle"
 
 exec bspwm
-
 
