@@ -33,7 +33,7 @@ XF86AudioMute
 
 # Capturas con maim + slop
 super + Home
-    maim -u --select ~/imgs/img_$(date +%3N)_$(date +%S).png
+    flameshot gui
 
 # make sxhkd reload its configuration files:
 super + Escape
