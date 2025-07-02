@@ -9,7 +9,7 @@ yadm clone https://github.com/martindios/dotfiles.git
 ---
 
 ## Contenido
-
+(hyprland básico, todo lo de X11, bspwm con sxhkd y polybar está deprecado)
 - **`.xinitrc`**: configuración de X (inicia automáticamente `sxhkd`, `kitty` y `aw` – [Activity Watch](https://activitywatch.net)).
 - **`.gitconfig`**: ajustes de Git, incluyendo el uso de [**delta**](https://github.com/dandavison/delta) para diffs más legibles.
 - **`.config/`**  
