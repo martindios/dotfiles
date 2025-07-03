@@ -4,4 +4,5 @@
 .config/bspwm
 .config/picom
 .config/polybar
+.config/sxhkd
 
