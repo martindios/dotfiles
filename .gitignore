@@ -3,4 +3,5 @@
 .xinitrc
 .config/bspwm
 .config/picom
+.config/polybar
 
