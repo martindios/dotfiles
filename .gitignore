@@ -2,3 +2,5 @@
 .gitconfig.local
 .xinitrc
 .config/bspwm
+.config/picom
+
