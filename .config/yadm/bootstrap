@@ -24,6 +24,7 @@ pacman_packages=(
     otf-codenewroman-nerd
     pamixer
     pavucontrol
+    perl-image-exiftool
     pulseaudio
     pulseaudio-alsa
     pulseaudio-bluetooth
