@@ -33,3 +33,6 @@ function cat
     bat $argv
 end
 
+function ssh
+    kitty +kitten ssh $argv
+end
