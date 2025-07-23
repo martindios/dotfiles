@@ -61,3 +61,5 @@ cd ..
 rm -rf yay
 
 yay -S --noconfirm "${aur_packages[@]}"
+
+wal -i ~/wallpaper/background.jpg
