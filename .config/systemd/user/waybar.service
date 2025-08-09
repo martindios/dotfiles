@@ -1,0 +1,10 @@
+[Unit]
+Description=Waybar
+
+[Service]
+ExecStart=/usr/bin/waybar
+Restart=no
+
+[Install]
+WantedBy=default.target
+
