@@ -36,3 +36,7 @@ end
 function ssh
     kitty +kitten ssh $argv
 end
+
+function sshn
+    command ssh $argv
+end
