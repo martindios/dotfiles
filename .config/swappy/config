@@ -1,0 +1,4 @@
+[Default]
+save_dir=$HOME/images
+save_filename_format=%H%M%S.png
+early_exit=true
