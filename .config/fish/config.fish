@@ -2,10 +2,6 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
-if test -z "$DISPLAY"; and test (tty) = "/dev/tty1"
-    startx
-end
-
 set fish_greeting ""
 set -x EZA_ICONS_AUTO 1
 
