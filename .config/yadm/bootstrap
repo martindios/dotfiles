@@ -86,7 +86,7 @@ sudo pacman -S --needed --noconfirm "${pacman_packages[@]}"
 
 cd /tmp || exit 1
 rm -rf /tmp/yay
-git clone https://aur.archlinux.org/yay.git
+sudo -u "$SUDO_USER" git clone https://aur.archlinux.org/yay.git
 sudo -u "$SUDO_USER" bash -c 'cd /tmp/yay && makepkg -si --noconfirm'
 
 aur_packages=(
