@@ -21,6 +21,7 @@ local opt = vim.opt            -- global/buffer/windows-scoped options
 ----------
 
 g.mapleader = " "              -- mapleader key
+g.maplocalleader = ","
 opt.clipboard = "unnamedplus"  -- copy/paste to system clipboard
 opt.mouse = "a"                -- enable mouse support
 opt.swapfile = false           -- disable swapfile use
