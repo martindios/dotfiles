@@ -1,10 +1,23 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
+set -euo pipefail # detener el script si error inesperado o variable indefinida o así
+
+# Se debe ejecutar este script como usuario, no como root
+: "${SUDO_USER:=${USER:-$(whoami)}}"  # Usuario real que inició sudo (si el usuario no leyó el comentario de arriba)
+
+# Comprobar si tiene conexión a internet
+if ! ping -c 1 archlinux.org >/dev/null 2>&1; then
+  echo "No hay conexión a internet. Abortando."
+  exit 1
+fi
+
+sudo pacman -Sy --noconfirm archlinux-keyring # primero actualizar el keyring, por las OpenPGP keys
 sudo pacman -Syu --noconfirm
 
 pacman_packages=(
     alsa-utils
     bat
+    base-devel
     blueman
     bluez-utils
     brightnessctl
@@ -12,15 +25,23 @@ pacman_packages=(
     docker
     docker-compose
     eza
+    fish
     git
     git-delta
+    grim
     htop
     hypridle
     hyprland
     hyprlock
     hyprpaper
+    imagemagick
+    jdk21-openjdk
+    kitty
     libreoffice-still
+    luarocks
     ly
+    neovim
+    openssh
     otf-codenewroman-nerd
     pamixer
     pavucontrol
@@ -28,9 +49,12 @@ pacman_packages=(
     pulseaudio
     pulseaudio-alsa
     pulseaudio-bluetooth
-    python-pywal16
     ripgrep
     rust
+    slurp
+    sof-firmware
+    swappy
+    tree
     ttf-hack-nerd
     ttf-nerd-fonts-symbols
     udiskie
@@ -38,28 +62,42 @@ pacman_packages=(
     usbutils
     waybar
     wget
-    wlogout
+    wl-clipboard
     wofi
     zip
 )
 
+sudo pacman -S --needed --noconfirm "${pacman_packages[@]}"
+
+cd /tmp || exit 1
+rm -rf /tmp/yay
+git clone https://aur.archlinux.org/yay.git
+sudo -u "$SUDO_USER" bash -c 'cd /tmp/yay && makepkg -si --noconfirm'
+
 aur_packages=(
     visual-studio-code-bin
-    librewolf-bin
-    )
-
-sudo pacman -S --noconfirm "${pacman_packages[@]}"
-
-cd /tmp || exit
-
-git clone https://aur.archlinux.org/yay.git
-
-cd yay || exit
-makepkg -si --noconfirm
-
-cd ..
-rm -rf yay
+    wlogout
+    python-pywal16
+)
 
 yay -S --noconfirm "${aur_packages[@]}"
 
-wal -i ~/wallpaper/background.jpg
+# Aplicar fondo con python-pywal16
+WALL="$HOME/wallpaper/background.jpg"
+if [ -f "$WALL" ]; then
+  sudo -u "$SUDO_USER" wal -i "$WALL"
+else
+  echo "Aviso: $WALL no existe, omitiendo wal -i."
+fi
+
+# Iniciar servicios
+sudo systemctl enable --now ly.service
+sudo systemctl enable --now bluetooth.service
+sudo systemctl enable --now docker.service
+
+sudo usermod -aG docker "$SUDO_USER"
+echo "Se añadió $SUDO_USER al grupo docker. Cierra sesión/reinicia"
+
+if command -v chsh >/dev/null 2>&1; then
+  chsh -s /usr/bin/fish "$SUDO_USER" || echo "chsh falló (¿/usr/bin/fish está en /etc/shells?)."
+fi
