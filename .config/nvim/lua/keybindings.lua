@@ -14,7 +14,8 @@ local vimap = vim.keymap.set
 
 -- Default confs --
 
-vim.keymap.set("i", "<C-BS>", "<C-W>")
+vim.api.nvim_set_keymap('n', '<C-k>', ':execute "normal! Gzz"<CR>', { noremap = true, silent = true }) -- Moves the cursor to the last line and centers it in the window
+
 
 ----------------
 -- Lsp Config --
